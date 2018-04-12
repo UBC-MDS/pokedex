@@ -4,7 +4,7 @@
 \alias{pokemon_exists}
 \title{Test pokemon exists}
 \usage{
-pokemon_exists(name)
+pokemon_exists(name_val)
 }
 \arguments{
 \item{name}{Name of pokemon}
