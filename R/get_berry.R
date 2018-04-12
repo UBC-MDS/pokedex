@@ -5,12 +5,13 @@
 #' @return A dataframe containing information about the specified berry.
 #'
 #' @import httr
-#' @export
 #'
-#' @example
+#'
+#' @examples
 #' data(berry_lookup)
 #' get_berry("cheri")
 #'
+#' @export
 get_berry <- function(s) {
 
   data(berry_lookup)

@@ -2,16 +2,16 @@
 #'
 #' @param name_val
 #'
-#' @importFrom magittr '%>%'
+#' @importFrom magrittr '%>%'
 #' @importFrom pokedex find_ev_id
 #' @importFrom pokedex pokemon_exists
 #' @import httr
 #' @import dplyr
 #' @return
-#' @export
 #'
 #' @examples
-
+#'
+#' @export
 evolution_tree <- function(name_val){
   ## make sure the pokemon exists by reference stored data frame of list of pokemon in api
   tryCatch({

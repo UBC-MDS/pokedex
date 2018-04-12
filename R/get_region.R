@@ -12,7 +12,7 @@
 #' @import purrr
 #' @importFrom magrittr "%>%"
 #'
-#' @importFrom pokedex get_types
+#' @importFrom pokedex "get_types"
 #'
 #' @export
 get_region <- function(colour, url = FALSE) {
