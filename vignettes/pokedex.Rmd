@@ -1,0 +1,45 @@
+---
+title: "pokedex"
+output: html_document
+---
+
+The `pokedex` package offers a suite of functions allowing a user to interact with the [PokeAPI](https://pokeapi.co/). Information about berries, evolutions, regions, and game generations is viewable.
+
+Functions available include:
+
+- `get_berry`  
+- `evolution_tree`  
+- `find_ev_id`  
+- `get_berry`
+- `get_types`  
+- `type_effectiveness`
+
+### Installation
+
+The package can be installed from GitHub using,
+
+```
+devtools::install_github("UBC-MDS/pokedex")
+```
+
+### Usage
+
+All functions perform similarly, taking a string specifying a pokemon or berry name, type, or relationship.
+
+For example, information about any berry can be found as follows:
+
+```
+get_berry("cheri")
+```
+
+Note that a message will be returned if the name isn't in the PokeAPI database. Berry names must be in lowercase. A dataframe of available berries can be found by loading,
+
+```
+data(berry_lookup)
+```
+
+Users can also access information about type effectiveness. If a user wanted to know which types fire is strong against, the following will return that information,
+
+```
+type_effectiveness("fire", "strong", "against")
+```
