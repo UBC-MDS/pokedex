@@ -1,6 +1,7 @@
 #' Evolution Tree
 #'
 #' Get the evolution tree of a pokemon character in a data frame
+#' Note: this version only creates evolution trees for babies
 #'
 #' @param name_val
 #'

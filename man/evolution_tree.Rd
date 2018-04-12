@@ -2,7 +2,7 @@
 % Please edit documentation in R/evolution_tree.R
 \name{evolution_tree}
 \alias{evolution_tree}
-\title{Title}
+\title{Evolution Tree}
 \usage{
 evolution_tree(name_val)
 }
@@ -13,7 +13,8 @@ evolution_tree(name_val)
 
 }
 \description{
-Title
+Get the evolution tree of a pokemon character in a data frame
+Note: this version only creates evolution trees for babies
 }
 \examples{
 
