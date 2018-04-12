@@ -1,3 +1,14 @@
+#' @param type
+#' @param strength
+#' @param direction
+#'
+#' @return Printed statements
+#'
+#' @import httr
+#' @export
+#'
+#' @examples type_effectiveness(type="fire", strength="strong", direction="against")
+
 type_effectiveness <- function(type, strength="all", direction="all"){
 
   query <- "type/?limit=20"
