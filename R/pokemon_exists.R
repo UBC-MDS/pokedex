@@ -7,10 +7,12 @@
 #'
 #' @export
 pokemon_exists <- function(name_val){
-
+  ## load in the data
   data("evolution_chain")
+  ## name read in as factors, convert to character
   evolution_chain_ids$name <- as.character(evolution_chain_ids$name)
 
+  ## ensure the name is in the evolution chain API
   if(!is.character(name_val)){
         return(FALSE)
   }else if(!tolower(name_val) %in% evolution_chain_ids$name){
