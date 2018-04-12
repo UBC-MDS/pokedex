@@ -15,7 +15,7 @@ pokemon_exists <- function(name){
 
   if(!is.character(name)){
         return(FALSE)
-  }else if(!name %in% lookup$name){
+  }else if(!tolower(name) %in% lookup$name){
         return(FALSE)
   }else{
         return(TRUE)

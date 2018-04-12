@@ -2,7 +2,7 @@
 #'
 #' @param name_val
 #'
-#' @importFrom magittr '%>%'
+#' @importFrom magrittr '%>%'
 #' @importFrom pokedex find_ev_id
 #' @importFrom pokedex pokemon_exists
 #' @import httr
