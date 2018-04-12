@@ -4,6 +4,9 @@
 #'
 #' @return A dataframe containing information about the specified berry.
 #'
+#' @import httr
+#' @export
+#'
 #' @example
 #' data(berry_lookup)
 #' get_berry("cheri")
