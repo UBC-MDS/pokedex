@@ -12,8 +12,6 @@
 #' @import purrr
 #' @importFrom magrittr "%>%"
 #'
-#' @importFrom pokedex get_types
-#'
 #' @export
 get_region <- function(colour, url = FALSE) {
 
@@ -21,7 +19,7 @@ get_region <- function(colour, url = FALSE) {
   con <- httr::content(resp)
 
   if (resp$status_code == 404) {
-      cols <- get_types(type = "version")
+      cols <- pokedex::get_types(type = "version")
       stop("Colour not found. Make sure it is one of: ", paste0(cols, collpase =", "))
   }
 

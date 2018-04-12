@@ -2,11 +2,15 @@
 #'
 #' @param name_val
 #'
-#' @return
-#' @export
+#' @return id
+#'
 #'
 #' @examples
-
+#' find_ev_id("bulbasaur")
+#'
+#' @import httr
+#'
+#' @export
 find_ev_id <- function(name_val){
   for(i in c(1:10200)){
     url <- paste("http://pokeapi.co/api/v2/evolution-chain/", i, sep="")

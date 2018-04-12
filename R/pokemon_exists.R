@@ -4,10 +4,9 @@
 #' @param name Name of pokemon
 #' @return Boolean TRUE if the pokemon exists in the API, FALSE otherwise
 #'
-#' @importfrom magrittr "%>%"
+#' @importFrom magrittr "%>%"
 #'
 #' @export
-
 pokemon_exists <- function(name){
   tryCatch({
          lookup <- pokedex:::lookup
