@@ -3,8 +3,6 @@
 #' @param name_val
 #'
 #' @importFrom magrittr '%>%'
-#' @importFrom pokedex find_ev_id
-#' @importFrom pokedex pokemon_exists
 #' @import httr
 #' @import dplyr
 #' @return
@@ -15,7 +13,7 @@
 evolution_tree <- function(name_val){
   ## make sure the pokemon exists by reference stored data frame of list of pokemon in api
   tryCatch({
-    exists <- pokemon_exists(tolower(name_val))
+    exists <- pokedex::pokemon_exists(tolower(name_val))
     if(!exists){
       stop("Error: Pokemon does not exist. Please reference documentation for pokemon that exist in this API.")
     }
@@ -24,7 +22,7 @@ evolution_tree <- function(name_val){
   ## search the evolution api for the id value
   tryCatch({
     print("Searching API.... This might take a moment.")
-    id <- find_ev_id(tolower(name_val))
+    id <- pokedex::find_ev_id(tolower(name_val))
   })
 
   ## call the evolution api for that id
