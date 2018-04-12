@@ -1,4 +1,6 @@
-#' Title
+#' Evolution Tree
+#'
+#' Get the evolution tree of a pokemon character in a data frame
 #'
 #' @param name_val
 #'
@@ -19,14 +21,16 @@ evolution_tree <- function(name_val){
     }
   })
 
-  ## search the evolution api for the id value
+  ## get the id value
   tryCatch({
-    print("Searching API.... This might take a moment.")
-    id <- pokedex::find_ev_id(tolower(name_val))
+    data("evolution_chain")
+    evolution_chain_ids$name <- as.character(evolution_chain_ids$name)
+    id_val <- evolution_chain_ids %>% filter(name == name_val) %>% .$id
   })
+  ## search the evolution api for the id value
 
   ## call the evolution api for that id
-  url <- paste("http://pokeapi.co/api/v2/evolution-chain/", id, sep="")
+  url <- paste("http://pokeapi.co/api/v2/evolution-chain/", id_val, sep="")
   r <- httr::GET(url)
   r2 <- httr::content(r)
   first <- r2$chain$evolves_to[[1]]
