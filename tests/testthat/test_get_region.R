@@ -13,7 +13,7 @@ test_that(
 test_that(
   "String is returned when valid colour is passed", {
     expect_equal(
-      is.character(get_region(colour = "red")),
+      is.data.frame(get_region(colour = "red")),
       TRUE
     )
   }
