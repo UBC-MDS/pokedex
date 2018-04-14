@@ -43,3 +43,30 @@ Users can also access information about type effectiveness. If a user wanted to 
 ```
 type_effectiveness("fire", "strong", "against")
 ```
+
+### Examples
+
+A simple example of how two of the functions in this package can be used to generate 
+plots:
+
+```{r}
+# devtools::install_github("UBC-MDS/pokedex")
+
+suppressPackageStartupMessages(library(tidyverse))
+library(pokedex)
+
+# easy to generate plots with
+get_types("berry") %>% 
+  map_dfr(get_berry) %>% 
+  mutate(Name = fct_reorder(Name, Size)) %>% 
+  ggplot() +
+  geom_point(aes(x = Size, y = Name)) +
+  ggtitle("BERRY SIZES")
+```
+
+
+```{r}
+get_types("version", limit = 25) %>% 
+  map_dfr(get_region)
+```
+
