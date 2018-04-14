@@ -7,15 +7,16 @@
 evolution_tree(name_val)
 }
 \arguments{
-\item{name_val}{}
+\item{name_val}{The name of a Pokemon character, a string}
 }
 \value{
-
+A data frame containing the names of the characters the name_val evolves into, the trigger that causes it, and the minimum level it occurs at
 }
 \description{
 Get the evolution tree of a pokemon character in a data frame
 Note: this version only creates evolution trees for babies
 }
 \examples{
+evolution_tree("bulbasaur")
 
 }

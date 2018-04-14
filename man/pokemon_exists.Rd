@@ -7,11 +7,14 @@
 pokemon_exists(name_val)
 }
 \arguments{
-\item{name}{Name of pokemon}
+\item{name_val}{Name of pokemon, a string}
 }
 \value{
-Boolean TRUE if the pokemon exists in the API, FALSE otherwise
+Boolean TRUE if the pokemon exists in the evolution-chain API as a baby, FALSE otherwise
 }
 \description{
-Tests whether the pokemon is available in the API by comparing to a stored data frame
+Tests whether the pokemon is a baby available in the evolution-chain API by comparing to a stored data frame.
+}
+\details{
+This is intended to be used internally.
 }

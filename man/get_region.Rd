@@ -2,23 +2,20 @@
 % Please edit documentation in R/get_region.R
 \name{get_region}
 \alias{get_region}
-\title{Get region for given game colour (version)}
+\title{Get region and generation for given game colour (version).}
 \usage{
-get_region(colour, url = FALSE)
+get_region(colour)
 }
 \arguments{
 \item{colour}{-- the game colour that we seek the region for.}
-
-\item{url}{-- whether or not to return a url to from another query to API.}
 }
 \value{
-The region where \code{colour} game took place or a \code{url} to query API.
+A tibble containg game \code{colour}, region, and generation.
 }
 \description{
-Get region for given game colour (version)
+Get region and generation for given game colour (version).
 }
 \examples{
 get_region(colour = "sapphire")
-get_region(colour = "red", url = TRUE)
 
 }
