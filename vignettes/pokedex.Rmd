@@ -9,7 +9,6 @@ Functions available include:
 
 - `get_berry`  
 - `evolution_tree`  
-- `find_ev_id`  
 - `get_berry`
 - `get_types`  
 - `type_effectiveness`
@@ -44,6 +43,12 @@ Users can also access information about type effectiveness. If a user wanted to 
 type_effectiveness("fire", "strong", "against")
 ```
 
+Users can access the evolution tree for baby pokemon. If a user wants to know which pokemon Bulbasaur evolves into, the following will return the trigger and minimum level the user must reach to evolve:
+
+```
+evolution_tree("bulbasaur")
+```
+
 ### Examples
 
 A simple example of how  to generate plots:
@@ -57,7 +62,7 @@ library(pokedex)
 # easy to generate plots with
 get_types("berry") %>% 
   map_dfr(get_berry) %>% 
-  mutate(Name = fct_reorder(Name, Size)) %>% 
+  mutate(Name = forcats::fct_reorder(Name, Size)) %>% 
   ggplot() +
   geom_point(aes(x = Size, y = Name)) +
   ggtitle("BERRY SIZES")
