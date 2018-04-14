@@ -34,19 +34,26 @@ evolution_tree <- function(name_val){
   r <- httr::GET(url)
   r2 <- httr::content(r)
 
+  ## eevee has 8 different possible evolutions (only character with this trait), so treat it separately
   if(tolower(name_val) == "eevee"){
     names <- c()
     triggers <- c()
+    ## loop through to get each of the 8 first level evolution names and triggers
+    ## min levels are null values for all of these evolutions, therefore will be excluded
     tr <- lapply(c(1:8), function(x) c(r2$chain$evolves_to[[x]]$species$name, r2$chain$evolves_to[[x]]$evolution_details[[1]]$trigger$name))
+
+    ## put the names and triggers in a list to make creating a data frame easy
     for(i in c(1:8)){
       names <- c(names, unlist(tr[i])[1])
       triggers <- c(triggers, unlist(tr[i])[2])
     }
+
+    ## make the eevee data frame and return it
     eevee_df <- data.frame(name = names, trigger = triggers)
     return(eevee_df)
   }
 
-  ## get the levels for the first and second evolutions
+  ## get the levels for the first and second evolutions (there are only two evolutions for baby characters)
   first <- r2$chain$evolves_to[[1]]
   second <- r2$chain$evolves_to[[1]]$evolves_to[[1]]
 
