@@ -5,6 +5,11 @@ wt_df <-data.frame(c("grass", "electric"))
 sa_df <- data.frame(c("ground", "rock", "fire"))
 wa_df <- data.frame(c("water", "grass", "dragon"))
 
+names(st_df) <- c("Strong To")
+names(wt_df) <- c("Weak To")
+names(sa_df) <- c("Strong Against")
+names(wa_df) <- c("Weak Against")
+
 test_that("type_effectiveness(type, strength, direction)", {
   expect_equal(type_effectiveness("water", "strong", "to"), st_df)
   expect_equal(type_effectiveness("water", "weak", "to"), wt_df)
