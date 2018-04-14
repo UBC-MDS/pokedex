@@ -3,14 +3,15 @@
 #' Get the evolution tree of a pokemon character in a data frame
 #' Note: this version only creates evolution trees for babies
 #'
-#' @param name_val
+#' @param name_val The name of a Pokemon character, a string
 #'
 #' @importFrom magrittr '%>%'
 #' @import httr
 #' @import dplyr
-#' @return
+#' @return A data frame containing the names of the characters the name_val evolves into, the trigger that causes it, and the minimum level it occurs at
 #'
 #' @examples
+#' evolution_tree("bulbasaur")
 #'
 #' @export
 evolution_tree <- function(name_val){
