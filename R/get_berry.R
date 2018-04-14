@@ -5,6 +5,7 @@
 #' @return A dataframe containing information about the specified berry.
 #'
 #' @import httr
+#' @import tibble
 #'
 #'
 #' @examples
@@ -27,7 +28,7 @@ get_berry <- function(s) {
   b_size <- x$size
   b_firmness <- x$firmness$name
 
-  df <- data.frame(
+  df <- tibble::tibble(
     Name = b_name,
     `Growth Time` = b_growth_time,
     Size = b_size,

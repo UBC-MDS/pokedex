@@ -11,6 +11,7 @@ Depends: R (>= 3.4.1)
 Imports:
   xml2,
   dplyr,
+  tibble,
   httr,
   purrr,
   magrittr

@@ -1,19 +1,18 @@
-#' Get region for given game colour (version)
+#' Get region and generation for given game colour (version).
 #'
 #' @param colour -- the game colour that we seek the region for.
-#' @param url -- whether or not to return a url to from another query to API.
 #'
-#' @return The region where \code{colour} game took place or a \code{url} to query API.
+#' @return A tibble containg game \code{colour}, region, and generation.
 #' @examples
 #' get_region(colour = "sapphire")
-#' get_region(colour = "red", url = TRUE)
 #'
 #' @import httr
 #' @import purrr
+#' @import tibble
 #' @importFrom magrittr "%>%"
 #'
 #' @export
-get_region <- function(colour, url = FALSE) {
+get_region <- function(colour) {
 
   resp <- httr::GET(paste0("http://pokeapi.co/api/v2/version/", colour))
   con <- httr::content(resp)
@@ -27,6 +26,10 @@ get_region <- function(colour, url = FALSE) {
     httr::GET() %>%
     httr::content()
 
-  out <- ifelse(url, r$regions[[1]]$url, r$regions[[1]]$name)
+  out <- tibble::tibble(
+    game = colour,
+    region = ifelse(is_empty(r$region), NA, r$regions[[1]]$name),
+    generation = r$generation$name
+  )
   return(out)
 }
