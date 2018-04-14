@@ -1,6 +1,8 @@
-#' @param type
-#' @param strength
-#' @param direction
+#' Discover which types are effective against one another
+#'
+#' @param type -- type
+#' @param strength -- strength
+#' @param direction -- direction
 #'
 #' @return Printed statements
 #'
