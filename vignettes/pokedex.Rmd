@@ -51,7 +51,7 @@ evolution_tree("bulbasaur")
 
 ### Examples
 
-A simple example of how  to generate plots:
+A simple example of how to generate plots:
 
 ```{r}
 # devtools::install_github("UBC-MDS/pokedex")
