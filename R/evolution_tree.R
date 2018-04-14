@@ -26,13 +26,25 @@ evolution_tree <- function(name_val){
   tryCatch({
     data("evolution_chain")
     evolution_chain_ids$name <- as.character(evolution_chain_ids$name)
-    id_val <- evolution_chain_ids %>% filter(name == name_val) %>% .$id
+    id_val <- evolution_chain_ids %>% dplyr::filter(name == name_val) %>% .$id
   })
 
   ## call the evolution api for that id
   url <- paste("http://pokeapi.co/api/v2/evolution-chain/", id_val, sep="")
   r <- httr::GET(url)
   r2 <- httr::content(r)
+
+  if(tolower(name_val) == "eevee"){
+    names <- c()
+    triggers <- c()
+    tr <- lapply(c(1:8), function(x) c(r2$chain$evolves_to[[x]]$species$name, r2$chain$evolves_to[[x]]$evolution_details[[1]]$trigger$name))
+    for(i in c(1:8)){
+      names <- c(names, unlist(tr[i])[1])
+      triggers <- c(triggers, unlist(tr[i])[2])
+    }
+    eevee_df <- data.frame(name = names, trigger = triggers)
+    return(eevee_df)
+  }
 
   ## get the levels for the first and second evolutions
   first <- r2$chain$evolves_to[[1]]
